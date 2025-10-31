@@ -56,7 +56,9 @@ fun LoginScreen(
             Image(
                 painter = painterResource(id = R.drawable.todo_logo_text),
                 contentDescription = "앱 텍스트 로고",
-                modifier = Modifier.size(165.dp)
+                modifier = Modifier
+                    .size(165.dp)
+                    .fillMaxWidth(),
             )
 
             Spacer(Modifier.height(180.dp))
