@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="bg">#FFFFF3E2</color>
+    <color name="btnBg">#FFFFE5B3</color>
+    <color name="textMain">#FF3B2F19</color>
+
+    <color name="textBox_Gray">#FFCFC8BB</color>
+    
+    <color name="type_focused_outline">#FF946545</color>
+    <color name="default_outline_gray">#FFFFF3E2</color>
+
+</resources>
