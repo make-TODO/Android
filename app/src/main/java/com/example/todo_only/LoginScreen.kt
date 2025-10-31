@@ -13,10 +13,13 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TextFieldDefaults
+import androidx.compose.material3.VerticalDragHandle
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.VerticalAlignmentLine
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
@@ -118,28 +121,39 @@ fun LoginScreen(
                 },
                 colors = TextFieldDefaults.colors(
                     focusedIndicatorColor = colorResource(R.color.type_focused_outline),
-                    unfocusedIndicatorColor = colorResource(R.color.default_outline_gray),
+                    unfocusedIndicatorColor = colorResource(R.color.textBox_Gray),
                     cursorColor = colorResource(R.color.type_focused_outline),
                     focusedContainerColor = colorResource(R.color.bg),
                     unfocusedContainerColor = colorResource(R.color.bg),
                 )
             )
 
-            Text(
-                text = "계정이 없으신가요?",
-                color = colorResource(R.color.textBox_Gray),
-                modifier = Modifier.padding(top = 34.dp)
-            )
-
-            TextButton(
-                onClick = onSignupSuccess
+            Row (
+                verticalAlignment = Alignment.CenterVertically
             ) {
                 Text(
-                    text = "회원가입 하러가기",
-                    color = colorResource(R.color.textMain),
-                    textDecoration = TextDecoration.Underline
+                    text = "계정이 없으신가요?",
+                    color = colorResource(R.color.textBox_Gray),
+                    modifier = Modifier.padding(top = 34.dp)
                 )
+
+                Spacer(modifier = Modifier.width(5.dp))
+
+                TextButton(
+                    onClick = onSignupSuccess,
+                    shape = RectangleShape,
+                    contentPadding = PaddingValues(0.dp)
+                ) {
+                    Text(
+                        text = "회원가입 하러가기",
+                        color = colorResource(R.color.textMain),
+                        textDecoration = TextDecoration.Underline,
+                        modifier = Modifier.padding(top = 34.dp)
+                    )
+                }
             }
+
+            Spacer(Modifier.height(34.dp))
 
             Button(
                 onClick = onLoginSuccess,
