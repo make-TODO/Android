@@ -57,6 +57,7 @@ class MainActivity : ComponentActivity() {
                             }
                         )
                     }
+
                     composable(Routes.Signup) {
                         SignupScreen(
                             onSignupSuccess = {
