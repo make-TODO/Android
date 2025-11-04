@@ -39,11 +39,15 @@ class MainActivity : ComponentActivity() {
                     }
                     composable(Routes.Intro) {
                         IntroScreen(
-                            onStartClick = {
+                            onSignupClick = {
+                                nav.navigate(Routes.Signup)
+                            },
+                            onLoginClick = {
                                 nav.navigate(Routes.Login)
                             }
                         )
                     }
+
                     composable(Routes.Login) {
                         LoginScreen(
                             onLoginSuccess = {
