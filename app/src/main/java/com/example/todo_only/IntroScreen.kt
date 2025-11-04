@@ -104,7 +104,7 @@ fun IntroScreen(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null
                     ) {
-                    onLoginClick()
+                        onLoginClick()
                     }
                 )
             }
