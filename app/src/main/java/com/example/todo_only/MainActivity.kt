@@ -62,9 +62,8 @@ class MainActivity : ComponentActivity() {
 
                     composable(Routes.Signup) {
                         SignupScreen(
-                            onSignupSuccess = {
-                                nav.navigate(Routes.Login) {
-
+                            onHomeClick = {
+                                nav.navigate(Routes.Home) {
                                 }
                             }
                         )
