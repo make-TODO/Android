@@ -13,7 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ModifierLocalBeyondBoundsLayout
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -24,13 +26,19 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun IntroScreen(
-    onStartClick: () -> Unit, ) {
+    onSignupClick: () -> Unit,
+    onLoginClick: () -> Unit) {
 
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.bg))
             .systemBarsPadding()
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null
+            ) {
+            }
     ) {
         Column(
             modifier = Modifier
@@ -56,30 +64,49 @@ fun IntroScreen(
 
             Spacer(Modifier.height(94.dp))
 
-            Button(
-                onClick = onStartClick,
-                shape = RoundedCornerShape(10.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = colorResource(id = R.color.btnBg),
-                    contentColor = colorResource(id = R.color.textMain)
-                ),
+            Box(
                 modifier = Modifier
                     .width(345.dp)
                     .height(52.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(colorResource(id = R.color.btnBg))
+                    .clickable(
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = null
                     ) {
-                Text("시작하기", fontSize = 18.sp)
+                        onSignupClick()
+                    },
+                contentAlignment = Alignment.Center
+            ) {
+                Text(
+                    "시작하기",
+                    fontSize = 18.sp
+                )
             }
 
             Spacer(Modifier.height(17.dp))
 
             Row(verticalAlignment = Alignment.CenterVertically) {
-                Text("계정이 있으신가요? ", color = Color(0xFFA59C8D))
-                TextButton(
-                    onClick = onStartClick,
-                    contentPadding = PaddingValues(0.dp)
-                ) {
-                    Text("로그인", color = colorResource(id = R.color.textMain), textDecoration = TextDecoration.Underline)
-                }
+                Text(
+                    "계정이 있으신가요?",
+                    color = Color(0xFFA59C8D),
+                    fontSize = 12.sp
+                )
+
+                Spacer(Modifier.width(5.dp))
+
+                Text(
+                    text = "로그인",
+                    color = colorResource(id = R.color.textMain),
+                    textDecoration = TextDecoration.Underline,
+                    fontSize = 12.sp,
+                    modifier = Modifier.clickable(
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = null
+                    ) {
+                    onLoginClick()
+                    }
+                )
             }
 
             Spacer(Modifier.height(20.dp))
