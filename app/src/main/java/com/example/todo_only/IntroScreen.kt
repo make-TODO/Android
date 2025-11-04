@@ -58,7 +58,7 @@ fun IntroScreen(
             Text(
                 text = "오늘 해야 할 일을\n마음껏 기록해보세요!",
                 fontSize = 18.sp,
-                color = Color(0xFF3B2F19),
+                color = colorResource(id = R.color.textMain),
                 textAlign = TextAlign.Center
             )
 
