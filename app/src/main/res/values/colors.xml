@@ -11,5 +11,7 @@
     
     <color name="type_focused_outline">#FF946545</color>
     <color name="default_outline_gray">#FFFFF3E2</color>
+    
+    <color name="signup_caution_red">#FFD48784</color>
 
 </resources>
