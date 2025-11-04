@@ -3,6 +3,7 @@ package com.example.todo_only
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -17,9 +18,11 @@ import androidx.compose.material3.VerticalDragHandle
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.VerticalAlignmentLine
+import androidx.compose.ui.modifier.modifierLocalOf
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.ImeAction
@@ -31,8 +34,8 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun LoginScreen(
-    onLoginSuccess: () -> Unit,
-    onSignupSuccess: () -> Unit,
+    onLoginClick: () -> Unit,
+    onSignupClick: () -> Unit,
 ) {
     var id by remember { mutableStateOf("") }
     var pw by remember { mutableStateOf("") }
@@ -139,36 +142,41 @@ fun LoginScreen(
                     modifier = Modifier.padding(top = 34.dp)
                 )
 
-                Spacer(modifier = Modifier.width(5.dp))
+                Spacer(Modifier.width(5.dp))
 
-                TextButton(
-                    onClick = onSignupSuccess,
-                    shape = RectangleShape,
-                    contentPadding = PaddingValues(0.dp)
-                ) {
-                    Text(
-                        text = "회원가입 하러가기",
-                        color = colorResource(R.color.textMain),
-                        textDecoration = TextDecoration.Underline,
-                        modifier = Modifier.padding(top = 34.dp)
-                    )
-                }
+                Text(
+                    text = "회원가입 하러가기",
+                    color = colorResource(id = R.color.textMain),
+                    textDecoration = TextDecoration.Underline,
+                    fontSize = 12.sp,
+                    modifier = Modifier
+                        .padding(top = 34.dp)
+                        .clickable(
+                            interactionSource = remember { MutableInteractionSource() },
+                            indication = null
+                    ) {
+                        onSignupClick()
+                    }
+                )
             }
 
             Spacer(Modifier.height(34.dp))
 
-            Button(
-                onClick = onLoginSuccess,
-                shape = RoundedCornerShape(10.dp),
-                colors = ButtonDefaults.buttonColors(
-                  containerColor = colorResource(R.color.btnBg),
-                  contentColor = colorResource(R.color.textMain)
-                ),
+            Box(
                 modifier = Modifier
                     .width(345.dp)
                     .height(52.dp)
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(colorResource(id = R.color.btnBg))
+                    .clickable(
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = null
+                    ) {
+                        onLoginClick()
+                    },
+                contentAlignment = Alignment.Center
             ) {
-                Text("로그인", fontSize = 18.sp)
+                Text("로그인", fontSize = 18.sp, color = colorResource(R.color.textMain))
             }
 
             Spacer(Modifier.height(261.dp))
