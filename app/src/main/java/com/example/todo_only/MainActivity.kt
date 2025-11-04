@@ -50,13 +50,11 @@ class MainActivity : ComponentActivity() {
 
                     composable(Routes.Login) {
                         LoginScreen(
-                            onLoginSuccess = {
-                                nav.navigate(Routes.Home) {
-                                    popUpTo(nav.graph.startDestinationId) { inclusive = true }
-                                    launchSingleTop = true
+                            onLoginClick = {
+                                nav.navigate(Routes.Login) {
                                 }
                             },
-                            onSignupSuccess = {
+                            onSignupClick = {
                                 nav.navigate(Routes.Signup)
                             }
                         )
