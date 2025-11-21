@@ -69,7 +69,7 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                     composable(Routes.Home) {
-                        HomeScreen()
+                        HomeingScreen()
                     }
                 }
             }
@@ -77,9 +77,9 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Composable
-fun HomeScreen() {
-    androidx.compose.material3.Text("홈 화면입니다 🙌")
-}
+//@Composable
+//fun HomeScreen() {
+//    androidx.compose.material3.Text("홈 화면입니다 🙌")
+//}
 
 
