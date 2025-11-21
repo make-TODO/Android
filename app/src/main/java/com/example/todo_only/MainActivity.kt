@@ -50,8 +50,8 @@ class MainActivity : ComponentActivity() {
 
                     composable(Routes.Login) {
                         LoginScreen(
-                            onLoginClick = {
-                                nav.navigate(Routes.Login) {
+                            onHomeClick = {
+                                nav.navigate(Routes.Home) {
                                 }
                             },
                             onSignupClick = {
@@ -62,8 +62,8 @@ class MainActivity : ComponentActivity() {
 
                     composable(Routes.Signup) {
                         SignupScreen(
-                            onHomeClick = {
-                                nav.navigate(Routes.Home) {
+                            onLoginClick = {
+                                nav.navigate(Routes.Login) {
                                 }
                             }
                         )
