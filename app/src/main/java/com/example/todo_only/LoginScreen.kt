@@ -34,8 +34,8 @@ import androidx.compose.ui.unit.sp
 
 @Composable
 fun LoginScreen(
-    onLoginClick: () -> Unit,
     onSignupClick: () -> Unit,
+    onHomeClick: () -> Unit
 ) {
     var id by remember { mutableStateOf("") }
     var pw by remember { mutableStateOf("") }
@@ -108,6 +108,9 @@ fun LoginScreen(
                     )
                 },
                 shape = RoundedCornerShape(12.dp),
+                keyboardOptions = KeyboardOptions(
+                    imeAction = ImeAction.Next
+                ),
                 visualTransformation = if (pwVisible) VisualTransformation.None
                 else PasswordVisualTransformation(),
                 trailingIcon = {
@@ -165,21 +168,21 @@ fun LoginScreen(
             Box(
                 modifier = Modifier
                     .width(345.dp)
-                    .height(52.dp)
+                    .height(46.dp)
                     .clip(RoundedCornerShape(10.dp))
                     .background(colorResource(id = R.color.btnBg))
                     .clickable(
                         interactionSource = remember { MutableInteractionSource() },
                         indication = null
                     ) {
-                        onLoginClick()
+                        onHomeClick()
                     },
                 contentAlignment = Alignment.Center
             ) {
                 Text("로그인", fontSize = 18.sp, color = colorResource(R.color.textMain))
             }
 
-            Spacer(Modifier.height(261.dp))
+//            Spacer(Modifier.height(261.dp))
         }
     }
 }
