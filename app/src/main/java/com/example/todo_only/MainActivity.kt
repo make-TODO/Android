@@ -3,10 +3,14 @@ package com.example.todo_only
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.runtime.*
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.todo_only.ui.screen.HomeScreen
+import com.example.todo_only.ui.screen.IntroScreen
+import com.example.todo_only.ui.screen.LoginScreen
+import com.example.todo_only.ui.screen.SignupScreen
+import com.example.todo_only.ui.screen.SplashScreen
 import com.example.todo_only.ui.theme.TodoOnlyTheme
 
 object Routes {
@@ -69,7 +73,7 @@ class MainActivity : ComponentActivity() {
                         )
                     }
                     composable(Routes.Home) {
-                        HomeingScreen()
+                        HomeScreen()
                     }
                 }
             }

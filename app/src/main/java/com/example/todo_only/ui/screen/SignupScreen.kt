@@ -1,4 +1,4 @@
-package com.example.todo_only
+package com.example.todo_only.ui.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -36,6 +36,7 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.sp
+import com.example.todo_only.R
 
 @Composable
 fun SignupScreen(
